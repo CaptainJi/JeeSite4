@@ -49,14 +49,14 @@ mvn clean package spring-boot:repackage -Dmaven.test.skip=true -U
 killTomcat $TOMCAT_PATH
 
 ## 删除tomcat中原有的工程
-rm -f $TOMCAT_PATH/webapps/ROOT.war
-rm -rf $TOMCAT_PATH/webapps/ROOT
+sudo rm -f $TOMCAT_PATH/webapps/ROOT.war
+sudo rm -rf $TOMCAT_PATH/webapps/ROOT
 
 ## 复制/粘贴新web.war包到tomcat web 应用部署路径
 cp $PROJ_PATH/web/target/web.war $TOMCAT_PATH/webapps/
 cd $TOMCAT_PATH/webapps/
-mv web.war ROOT.war
+sudo mv web.war ROOT.war
 
 ## 启动tomcat
 cd $TOMCAT_PATH/bin
-sh startup.sh
+sudo sh startup.sh
