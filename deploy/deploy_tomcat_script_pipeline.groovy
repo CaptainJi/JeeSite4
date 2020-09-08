@@ -52,8 +52,8 @@ node('master') {
     stage('清理环境') {
         sh '''
             ## 删除原有war包
-            rm -f $tomcat_home/webapps/ROOT.war
-            rm -rf $tomcat_home/webapps/ROOT
+            sudo rm -f $tomcat_home/webapps/ROOT.war
+            sudo rm -rf $tomcat_home/webapps/ROOT
         '''
     }
 

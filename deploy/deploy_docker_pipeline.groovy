@@ -15,7 +15,7 @@ pipeline {
     stages{
         stage('同步源码') {
             steps {
-                git url:'git@gitee.com:11547299/jeesite4.git', branch:'$branch'
+                git url:'git@github.com:CaptainJi/JeeSite4.git', branch:'$branch'
             }
         }
 
@@ -81,7 +81,7 @@ pipeline {
             steps {
                 sh '''
                     cd ${WORKSPACE}/web/bin/docker
-                    rm -f web.war
+                    sudo rm -f web.war
                     cp ${WORKSPACE}/web/target/web.war .
                     docker build -t $docker_image_name .
                 '''
